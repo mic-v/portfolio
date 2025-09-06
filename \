@@ -1,0 +1,46 @@
+---
+import '../styles/main.css';
+import Logo from './Logo.astro';
+---
+<header>
+    <div class="content-wrapper">
+        <nav>
+            <div id="header-menu">
+                <Logo/>
+                <button id="nav-button" type="button">
+                    <h4>Menu</h4>
+                    <div>&#9776;</div>
+                </button> 
+            </div>
+            <ul id="nav-list">
+                <li>home</li>
+                <li>about</li>
+                <li>projects</li>
+                <li>contact</li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<script>
+    const button = document.getElementById('nav-button');
+    button.addEventListener('click', () => {
+        let navlist = document.getElementById('nav-list');
+        if(navlist.style.display === 'none') {
+            navlist.style.display = "flex"; 
+        } else {
+            navlist.style.display = 'none';
+        }
+    });
+
+    //if screen size is greater than 1024px
+    window.addEventListener('resize', () => {
+        console.log("resive")
+        let navlist = document.getElementById('nav-list');
+        if(document.documentElement.clientWidth >= 1024) {
+            navlist.style.display = 'flex';
+        }
+        else if(document.documentElement.clientWidth < 1024) {
+        }
+    });
+
+</script>
