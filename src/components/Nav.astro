@@ -11,12 +11,12 @@ import Logo from './Logo.astro';
                     <h4>Menu</h4>
                     <div>&#9776;</div>
                 </button> 
-            </div>
+           </div>
             <ul id="nav-list">
-                <li>home</li>
-                <li>about</li>
-                <li>projects</li>
-                <li>contact</li>
+                <li><a href="/">home</a></li>
+                <li><a href="/about">about</a></li>
+                <li><a href="/projects">projects</a></li>
+                <li><a href="/contact">contact</a></li>
             </ul>
         </nav>
     </div>
@@ -25,19 +25,21 @@ import Logo from './Logo.astro';
     const button = document.getElementById('nav-button');
     button.addEventListener('click', () => {
         let navlist = document.getElementById('nav-list');
-        if(navlist.style.display === 'none') {
+        if(navlist.style.display == 'none' || navlist.style.display == "") {
             navlist.style.display = 'flex'; 
-        } else {
+        } else if(navlist.style.display == 'flex') {
             navlist.style.display = 'none';
         }
     });
 
     //if screen size is greater than 1024px
     window.addEventListener('resize', () => {
-        console.log("resive")
         let navlist = document.getElementById('nav-list');
         if(document.documentElement.clientWidth >= 1024) {
             navlist.style.display = 'flex';
+        }
+        else {
+            navlist.style.display = 'none';
         }
     });
 
